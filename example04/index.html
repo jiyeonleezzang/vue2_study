@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Vue Example4</title>
+</head>
+<body>
+    <div id="app">
+        <!--이벤트 연결시 v-on사용해서 methods에 구현한 함수와 연결-->
+        {{year}}
+        <input type="button" v-on:click="add" value="더하기"/>
+        <input type="button" v-on:click="minus" value="빼기"/>
+        <hr/>
+
+        <!--이벤트후 행위 정의(prevent, stop...)-->
+        <form v-on:submit.prevent="submitEvent">
+            <input type="text" name="test" id="">
+            <input type="submit" value="서브밋">
+        </form>
+    </div>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data:{
+                year: 2018
+            },
+            methods:{
+                add(){
+                    this.year++
+                },
+                minus(){
+                    this.year--
+                },
+                submitEvent(){
+                    alert('submit')
+                    console.log('hello')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

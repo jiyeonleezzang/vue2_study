@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Vue Example6</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }}<br/>
+        <button @click='click'>데이타변경</button><br/>
+        {{ updated }}
+    </div>
+    
+    <script>
+        const app = new Vue({
+            el: "#app", 
+            data:{
+                message: '헬로우',
+                updated: '아니오'
+            },
+            methods:{
+                click(){
+                    this.message = '코지코더'
+                }
+            },
+            watch:{
+                // message 데이터를 지켜보다가 변경이되면 이벤트가 호출됨
+                // 감시변수이름과 동일하게 함수 정의
+                message(newVal, oldVal){
+                    console.log('신규값: ' , newVal, ', 이전값: ', oldVal)
+                    this.updated = '예'
+                },
+                updated(newVal, oldVal){
+                    console.log('신규값: ' , newVal, ', 이전값: ', oldVal)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Vue Example9</title>
+</head>
+<body>
+    <div id="app">
+        <!-- if인 경우 false이면 아예 렌더링을 하지 않음-->
+        <!--Group 인경우 template태그로 감싸서 그룹처리함-->
+        <template v-if="number === 1">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </template>
+        <!--else if 처리 방법-->
+        <div v-else-if="number === 2">
+            YES!
+        </div>
+        <!--else 처리-->
+        <div v-else>
+            NO!
+        </div>
+        <button @click="increase">Increase</button>
+    </div>
+    
+    <script>
+        const app = new Vue({
+            el: "#app", 
+            data:{
+                number: 1
+            },
+            methods:{
+                increase(){
+                    this.number++;
+                }
+            },
+        })
+    </script>
+</body>
+</html>

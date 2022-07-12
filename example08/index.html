@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Vue Example8-1(클래스)</title>
+    <style lang="">
+        .red{
+            color: red;
+        }
+        .font-bold{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!--
+            - isRed가 true이면 'red'클래스 삽입이되고
+              ,isRed가 false이면 'red'클래스가 사라진다.
+              >> 클래스에 있는 연산자
+            - 바인딩시 콜론 뒤가 변수로 적용됨
+        -->
+        <div v-bind:class="{red: 'true', 'font-bold':isBold}" class="">Hello</div>
+        <button v-on:click="update">Change</button>
+        <button v-on:click="remove">Remove</button>
+    </div>
+    
+    <script>
+        const app = new Vue({
+            el: "#app", 
+            data:{
+                isRed: false,
+                isBold: false,
+            },
+            methods:{
+                update(){
+                    this.isRed = true;
+                    this.isBold = true;
+                    
+                },
+                remove(){
+                    this.isRed = false;
+                    this.isBold = false;
+                }
+            },
+        })
+    </script>
+</body>
+</html>

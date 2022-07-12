@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Vue Example8-2(스타일)</title>
+    <style lang="">
+        .red{
+            color: red;
+        }
+        .font-bold{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!--
+            - font-size는 'font-size' 처럼 홀따음표로 묶어도 되고
+            - 카멜방식(fontSize)으로 변경해서 작성해도 됨
+            - 바인딩시 콜론 뒤가 변수로 적용됨
+        -->
+        <div v-bind:style="{color: color, fontSize: size}" >Hello</div>
+        <button v-on:click="up">up</button>
+        <button v-on:click="down">down</button>
+    </div>
+    
+    <script>
+        const app = new Vue({
+            el: "#app", 
+            data:{
+                color: 'red',
+                size: '30px',
+            },
+            methods:{
+                up(){
+                    this.color = 'red';
+                    this.size = '50px';
+                    
+                },
+                down(){
+                    this.color = 'blue';
+                    this.size = '30px';
+                }
+            },
+        })
+    </script>
+</body>
+</html>

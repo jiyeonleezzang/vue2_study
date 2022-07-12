@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Vue Example10</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <ul>
+                <li>{{people[0].name}} {{people[0].age}}</li>
+            </ul>
+            <hr/>
+            <ul>
+                <!--people 변수를 받아서 새로 정의한 person에 배열수만큼 반복 출력함-->
+                <li v-for="person in people">{{person.name}} {{person.age}}</li>
+            </ul>
+            <hr/>
+            <ul>
+                <!--
+                    - 두번째인자로 index받아옴
+                    - dom노드추적, 재사용, 재정렬 등의 목적으로를 위해 unique한 값을 key값 설정해줘야함
+                      >> 아래코드는 유니크한 id값을 key값으로 설정함
+                -->
+                <li v-for="(person, idx) in people" :key="person.id">{{idx}} : {{person.name}} {{person.name}} {{person.age}}</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        const app = new Vue({
+            el: "#app", 
+            data:{
+                people:[
+                    {id: 1001, name: 'a', age: 20},
+                    {id: 1002, name: 'b', age: 21},
+                    {id: 1003, name: 'b', age: 21},
+                    {id: 1004, name: 'd', age: 23},
+                ]
+            },
+            methods:{
+                
+            },
+        })
+    </script>
+</body>
+</html>

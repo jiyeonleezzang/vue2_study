@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Vue Example1</title>
+</head>    
+<body>
+    <div id="app">
+        <!--데이터 출력-->
+        <h1>Hello {{name}}</h1>
+
+        <!--데이터 바인딩-->
+        <input type="text" v-model="name">
+        <ul>
+            <!--데이터 반복문-->
+            <li v-for="framework in frameworks">{{framework}}</li>
+        </ul>
+        <div>{{frameworks}}</div>
+    </div>
+
+    <script>
+        const app = new Vue({
+            // Vue로 렌더링 할 타겟 DIV 매핑(1개)
+            el: "#app",
+
+            //Vue렌더링시 출력할 데이터
+            data:{
+                name: "default value",
+                frameworks:["React","Vue","Anguler"],
+            }
+        })
+    </script>
+</body>
+</html>

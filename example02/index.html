@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Vue Example2</title>
+</head>
+    <div id="app">
+        <!--Object 형식 데이터 출력-->
+        <h1>{{person.name}} {{person.year}}</h1>
+        <!--함수 리턴값 출력2 - 파라미터-->
+        <h2>{{hellogreeting('Hello')}}</h2>
+        <!--함수 리턴값 출력3 - 기존함수(this) 이용-->
+        <h2>{{hellogreeting2()}}</h2>
+    </div>
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data:{
+                // Object형식으로 데이터 리턴
+                person: {
+                    name: "scalper",
+                    year: 30
+                }
+            },
+            //함수는 method s 에 정의하면 html에서 사용이 가능하다.
+            methods:{
+                hello: function(){
+                    //함수 정의 테이터 출력을 원하는 경우 return필수
+                    //this를 이용해 data나 methods에 접근할 수 있다.
+                    return this.person.name + '는 ' + this.person.year + '입니다.';
+                },
+                hellogreeting(greeting){
+                    //인자를 받는 함수 정의
+                    return greeting + '! ' + this.person.name + '는 ' + this.person.year +'입니다.';
+                },
+                hellogreeting2(){
+                    //기존함수 호출(this 이용)
+                    return this.hellogreeting('Say~');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

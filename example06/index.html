@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Vue Example6</title>
+</head>
+<body>
+    <div id="app">
+        <button @click='click'>데이타변경</button><br/>
+        Computed : {{ reversedMessage }}<br/>
+        Computed : {{ reversedMessage }}<br/>
+        Computed : {{ reversedMessage }}<br/>
+        methods : {{ reversedMessage_method() }}
+    </div>
+    
+    <script>
+        const app = new Vue({
+            el: "#app", 
+            data:{
+                message: '헬로우'
+            },
+            methods:{
+                // 캐싱을하지 않는다. - 렌더링 후 계산됨(3번 반복)
+                reversedMessage_method(){
+                    return this.message.split('').reverse().join('')
+                },
+                click(){
+                    this.message = '코지코더'
+                }
+            },
+            computed:{
+                // 캐싱을 함 - 렌더링전 이미 계산됨(렌더링전 1번만 계산함)
+                reversedMessage(){
+                    return this.message.split('').reverse().join('')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

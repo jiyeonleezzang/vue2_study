@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Vue Example3</title>
+</head>
+<body>
+    <div id="app">
+        <!--v-bind를 이용해 태그의 attribute에 매핑 가능(단방향)-->
+        <input v-bind:type="type" v-bind:value="inputData2"><br/>
+        <!--v-bind가 되었지만 밸류 변경시 적용되지는 않음-->
+        >> {{inputData2}} <br/>
+        <!--링크 연결-->
+        <a :href="moveGoLink" target="_blank">네이버로 이동</a>
+    </div>
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data:{
+                //Object형식으로 데이터 리턴
+                person: {
+                    name:"scalper",
+                    year: 30
+                },
+                inputData2: '999',
+                type: 'number',
+                moveGoLink: 'https://www.naver.com',
+            },
+            //함수는 method s 에 정의하면 html에서 사용이 가능하다.
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>
